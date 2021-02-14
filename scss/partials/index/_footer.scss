@@ -1,0 +1,78 @@
+footer{
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 27px;
+    margin-top: 0;
+    padding-top: 50px;
+
+}
+
+footer .compartir p{
+
+    font-size: 15px;
+    font-family: 'Roboto-Regular' sans-serif;
+
+}
+
+footer .compartir{
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+
+footer .redes{
+
+    display: flex;
+    margin-top: 20px;
+    margin-bottom: 46px;
+
+}
+
+footer .copy{
+
+    font-size: 14px;
+    font-family: 'Roboto-Regular' sans-serif;
+
+}
+
+#facebook{
+
+    width: 20px;
+    height: 20px;
+    background-image: url('/assets/icon_facebook.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    margin: 0 10px;
+
+}
+
+#instagram{
+
+    width: 20px;
+    height: 20px;
+    background-image: url('/assets/icon_instagram.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    margin: 0 10px;
+
+}
+
+#twitter{
+
+    width: 20px;
+    height: 20px;
+    background-image: url('/assets/icon-twitter.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    margin: 0 10px;
+
+}

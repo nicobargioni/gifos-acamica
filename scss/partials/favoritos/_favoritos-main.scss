@@ -1,0 +1,46 @@
+.favoritos-main{
+
+    margin-top: 5px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-self: center;
+    text-align: center;
+
+}
+
+h2{
+
+    font-size: 20px;
+    color: $main-color;
+    margin-bottom: 46px;
+    margin-top: 8px;
+
+}
+
+.favoritos-container{
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+    gap: 25px 10px;
+    
+
+}
+
+.favoritos-gif{
+
+    width: 140px;
+    height: 110px;
+    cursor: pointer;
+    
+
+}
+
+#vermas-favoritos{
+
+    @include boton;
+    margin-top: 80px;
+
+}

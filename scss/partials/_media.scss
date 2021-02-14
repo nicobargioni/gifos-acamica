@@ -1,0 +1,182 @@
+@media (min-width: 769px){
+
+    #nav-desktop{
+        display: flex;
+        height: 90px;
+        width: 100%;
+        align-items: center;
+        padding-left: 20px;
+        
+    }
+
+    #nav-mobile{
+        display: none;
+    }
+
+    .tapa{
+
+        display: none;
+
+    }
+
+    .divlogo{
+
+        background-image: url('/assets/logo-desktop.svg');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        width: 60px;
+        height: 60px;
+        cursor: pointer;
+    
+    }
+
+    .bar{
+
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        width: 100%;
+        margin-right: 20px;
+        min-width: 500px;
+    
+    }
+
+    .a-nav{
+
+        font-size: 13px;
+        text-align: center;
+        text-decoration: none;
+        font-family: $main-font;
+        color: $main-color;
+        margin: 0 20px;
+    
+    }
+    
+    #logo-nav-desktop{
+    
+        cursor:initial;
+        width: 100%;
+        
+    
+    }
+    
+    #btn-crear{
+    
+        margin-left: 20px;
+        background-image: url('/assets/button-crear-gifo.svg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        width: 60px;
+        height: 60px;
+        cursor: pointer;
+    
+    
+    }
+
+
+    .index-main h1{
+
+        max-width: 430px;
+
+    }
+
+    .trending .gif-container{
+
+        margin-left: 0;
+
+    }
+
+    .br-trending{
+
+        display: none;
+
+    }
+
+    .trending{
+
+        width: 100%;
+
+    }
+
+    footer{
+
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        padding-bottom: 30px;
+
+    }
+
+    footer .compartir{
+
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        margin-left: 150px;
+
+    }
+
+    footer .redes{
+
+        margin: 0;
+
+    }
+
+    .copy{
+
+        margin-right: 150px;
+
+    }
+
+    .favoritos-main{
+
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    
+    }
+
+    .favoritos-container {
+        
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+        gap: 35px 35px;
+
+    }
+
+    .favoritos-gif{
+
+        width: 260px;
+        height: 200px;
+
+    }
+
+    #icon-mis-gifos{
+
+        margin-bottom: 8px;
+    
+    }
+    
+    .gifos-container {
+    
+        display: grid;
+        margin-top: 35px;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        gap: 35px 35px;
+    }
+
+    .mostrar-tapa{
+
+        display: none;
+    
+    }
+
+}

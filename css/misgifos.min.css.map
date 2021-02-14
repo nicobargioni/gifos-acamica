@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,gBAAgB,CAAA;EAEZ,OAAO,EAAE,IAAI;EACb,qBAAqB,EAAE,cAAc;EACrC,kBAAkB,EAAE,cAAc;EAClC,GAAG,EAAE,SAAS;CAEjB;;AAED,AAAA,QAAQ,CAAA;EAEJ,KAAK,EAAE,IAAI;EACX,MAAM,EAAE,IAAI;CAEf",
+    "sources": [
+        "../scss/partials/mis-gifos/misgifos.scss"
+    ],
+    "names": [],
+    "file": "misgifos.min.css"
+}

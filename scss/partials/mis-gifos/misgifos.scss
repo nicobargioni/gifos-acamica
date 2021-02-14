@@ -1,0 +1,15 @@
+.gifos-container{
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    gap: 25px 10px;
+
+}
+
+.alindex{
+
+    width: 60px;
+    height: 60px;
+
+}

@@ -1,0 +1,54 @@
+.menu{
+
+    
+    width: 100%;
+    background-color: $main-color;
+    height: 100%;
+    text-align: center;
+    opacity: 0.9;
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 40px;
+    top: 100px;
+    z-index: 1;
+
+}
+
+.tapa-a{
+
+    color: white;
+    text-decoration: none;
+    font-size: 1.3rem;
+
+}
+
+ul{
+
+    padding-top: 55px;
+
+}
+
+li{
+    padding: 10px;
+    padding-bottom: 20px;
+    display: flex;
+    align-items: center;
+}
+
+
+#menu hr{
+
+    width: 15%;
+    border: 1px solid white;
+    margin: 0 auto;
+
+}
+
+
+.mostrar-menu{
+
+    display: flex;
+    flex-direction: column;
+
+}

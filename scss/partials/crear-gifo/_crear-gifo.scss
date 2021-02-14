@@ -1,0 +1,103 @@
+.creargifo-container{
+
+    color: $main-color;
+    font-family: $main-font;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.crear-gifo{
+
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding-top: 30px;
+    padding-bottom: 30px ;
+    margin-top: 160px;
+
+}
+
+.btn-img{
+
+    width: 70%;
+    margin-left: 480px;
+    display: flex;
+    justify-content: space-around;
+
+}
+
+
+
+.escenario{
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: $main-color;
+    font-family: $main-font;
+    border: 1px solid $main-color;
+    width: 688px;
+    height: 390px;
+    text-align: center;
+    margin-left: -600px;
+    
+
+}
+
+.color2{
+    
+    color: $second-color;
+
+}
+
+.botones-escenario{
+
+    width: 32px;
+    height: 32px;
+    border: 1px solid $main-color;
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 10px; 
+    cursor: pointer;
+
+}
+
+.creargifo-container hr{
+
+    width: 60%;
+    border: 3px solid $main-color;
+    margin: 0 auto;
+    border-radius: 50px;
+
+}
+
+.botones-crear{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+
+}
+
+#boton-comenzar{
+
+    margin-top: 20px;
+    width: 127px;
+    height: 50px;
+    background-color: white;
+    color: $main-color;
+    font-family: $main-font;
+    border-radius: 50px;
+    border: 1px solid $main-color;
+    outline: none;
+    cursor: pointer;
+
+}

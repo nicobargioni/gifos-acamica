@@ -1,0 +1,43 @@
+// COLORES
+
+$main-color: #572EE5;
+$second-color: #50E3C2;
+
+
+// FUENTES
+
+$main-font: 'Montserrat', sans-serif;
+
+*{
+
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: $main-font;
+    overflow-x: hidden;
+    
+
+}
+
+// 
+
+// MIXINS
+
+@mixin boton {
+    
+    width: 127px;
+    height: 50px;
+    background-color: white;
+    color: $main-color;
+    border-radius: 50px;
+    border: 1px solid $main-color;
+    cursor: pointer;
+    outline: none;
+
+}
+
+body{
+
+    transition: all 1s;
+
+}

@@ -1,0 +1,92 @@
+.crear-gifo .camara-animation{
+
+    display: flex;
+    flex-direction: column;
+    height: 200px;
+    margin-left: -250px;
+    margin-top: 10px;
+
+}
+
+.cintas-camara{
+
+    position: absolute;
+    top: 210px;
+    left: 75px;
+    width: 150%;
+
+}
+
+#luz-camara{
+
+    padding-bottom: 100px;
+    animation: proyectar 0.1s linear infinite;
+    animation-timing-function: ease-in-out;
+
+}
+
+.camara{
+
+    display: flex;
+
+}
+
+#cinta1{
+
+    animation: gira-atras 2s linear infinite;
+
+}
+
+#cinta2{
+
+    animation: gira-adelante 2s linear infinite;
+
+}
+
+@keyframes gira-atras{
+
+    0%{
+
+        transform: rotate(0deg);
+
+    }
+
+    100%{
+
+        transform: rotate(-360deg);
+
+    }
+
+}
+
+@keyframes gira-adelante{
+
+    0%{
+
+        transform: rotate(0deg);
+
+    }
+
+    100%{
+
+        transform: rotate(360deg);
+
+    }
+
+}
+
+@keyframes proyectar{
+
+    0%{
+
+        opacity: 0;
+
+    }
+
+    100%{
+
+        opacity: 1;
+
+    }
+
+}
