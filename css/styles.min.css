@@ -23,9 +23,16 @@ nav {
   transition: all 1s;
 }
 
+#nav-desktop a:hover {
+  font-weight: bold;
+  padding-bottom: 13px;
+  text-decoration: underline 3px solid #50E3C2;
+  transition: all 0.2s ease-in-out;
+}
+
 .sticky {
   /* height: 90px; */
-  box-shadow: 0 2px 10px 1px rgba(156, 175, 195, 0.55);
+  box-shadow: 0 2px 6px 1px rgba(156, 175, 195, 0.55);
 }
 
 .logo-noc {
