@@ -51,13 +51,14 @@ h3{
 .sugerencias-anim{
 
     width: 550px;
-    height: 100%;
+    max-height: 200px;
+    overflow: hidden;
+    display: none;
     background-color: white;
     border: 1px solid $main-color;
     border-radius: 20px;
     padding-top: 0;
     text-align: left;
-    display: none;
     margin-bottom: 80px;
 
 
@@ -86,7 +87,9 @@ h3{
 
 .sugerencias-on{
 
-    display: inline;
+    display: block;
+    width: 90%;
+    padding: 25px 19px;
 
 }
 

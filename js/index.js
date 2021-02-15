@@ -6,13 +6,13 @@ let lupa = document.getElementById('lupa')
 let input = document.getElementById('search')
 let menu = document.getElementById('menu')
 let aModoNocturno = document.getElementById('a-modonocturno')
-let sugerenciaUl = document.createElement('ul')
-sugerenciaUl.style.padding = '20px'
-sugerenciaUl.style.margin = '0'
+
+
+const API = 'p5x2giFPqjYRL2ehvqZ9ctmMD8VAH2Fl'
 
 // FETCH HACIA TRENDING
 
-fetch('https://api.giphy.com/v1/gifs/trending?api_key=p5x2giFPqjYRL2ehvqZ9ctmMD8VAH2Fl&limit=25&rating=g')
+fetch(`https://api.giphy.com/v1/gifs/trending?api_key=${API}&limit=25&rating=g`)
     .then(response => response.json())
     .then(json => {
 
@@ -157,69 +157,74 @@ const mostrarGifs = () => {
     
 }
 
+let tituloBusqueda = document.getElementById('h3-busqueda')
+let ulSugerencias = document.getElementById('sugerencias')
+
+/* const busquedaAnimacion = () => {
+
+    busqueda = input.value
+    if(busqueda !== ''){
+        ulSugerencias.classList.add('sugerencias-on')
+    }
+
+}
+busquedaAnimacion() */
+
+
+
 const autocompletar = () => {
 
-    let tituloBusqueda = document.getElementById('h3-busqueda')
-    let ulSugerencias = document.getElementById('sugerencias')
-
-    sugerenciaUl.textContent = ''
-
-    let busqueda = input.value
-
+    busqueda = input.value
     
-
-    tituloBusqueda.textContent = busqueda
-    ulSugerencias.classList.add('sugerencias-on')
-    ulSugerencias.classList.add('animacion-sugerencias') 
-
-    if(busqueda === ''){
-        ulSugerencias.style.display = 'none'
-    }
-    
-    
-    // FETCH AUTOCOMPLETAR - SUGERENCIAS
-
-    fetch(`https://api.giphy.com/v1/gifs/search/tags?api_key=p5x2giFPqjYRL2ehvqZ9ctmMD8VAH2Fl&q=${busqueda}`)
-        .then(response => response.json())
-        .then(json => {
-
-            console.log(json)
-        
-
-            for(let i = 0 ; i < json.data.length ; i++){
+    ulSugerencias.innerHTML = ''
+    let autocomplete = fetch(`https://api.giphy.com/v1/tags/related/${busqueda}?api_key=${API}&limit=4`)
+                   .then(response => response.json())
+                    
+    autocomplete.then(json => {
             
-                
+        console.log(json)
+
+            for(let i = 0; i < json.data.length; i++){
+
+                let palabraCreada = document.createElement('p')
                 let sugerenciaLi = document.createElement('li')
-                sugerenciaLi.style.padding = '0'
-                let sugerenciaP = document.createElement('p')
+                palabraCreada.textContent = json.data[i].name
+                sugerenciaLi.appendChild(palabraCreada)
+                ulSugerencias.appendChild(sugerenciaLi)
                 
-                sugerenciaP.style.margin_left = '5px'
-
-                sugerenciaLi.classList.add('p_search')
-                sugerenciaP.textContent = json.data[i].name
-
-                sugerenciaLi.appendChild(sugerenciaP)
-                sugerenciaUl.appendChild(sugerenciaLi)
-                ulSugerencias.appendChild(sugerenciaUl)
-                sugerenciaUl.style.margin = '5px'
-                sugerenciaUl.style.cursor = 'pointer'
-
-                
-
-                
-                sugerenciaLi.addEventListener("click", function() {
-                    input.value = sugerenciaP.textContent
-                    ulSugerencias.style.display = 'none'
-                    tituloBusqueda.textContent = busqueda.toUpperCase()})
-           }
-        })
-
-    .catch(err => console.error('Algo falló: ' + err))
-
+            }
+            
+            
+    }).catch(err => console.error('Algo falló: ' + err))
+    ulSugerencias.classList.add('sugerencias-on')
     
-   
-    
-}  
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 function scrollFunction() {
     if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
@@ -237,11 +242,11 @@ window.onscroll = function () {
 
 
 
-let sugerenciaLi = document.getElementsByClassName('p_search')
+
 burgermobile.addEventListener('click', mostrarMenu)
 botonModoNocturno.addEventListener('click', cambiarnocturno)
 aModoNocturno.addEventListener('click', cambiarnocturno)
-input.addEventListener('input', autocompletar)
+input.addEventListener('keyup', autocompletar)
 
 // SOLAMENTE LA LUPA Y LA TECLA ENTER MUESTRAN LOS GIFS 
 lupa.addEventListener('click', mostrarGifs)
