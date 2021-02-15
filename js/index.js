@@ -186,6 +186,8 @@ const mostrarGifs = () => {
 const autocompletar = () => {
 
     busqueda = input.value
+
+    
     
     ulSugerencias.innerHTML = ''
     let autocomplete = fetch(`https://api.giphy.com/v1/tags/related/${busqueda}?api_key=${API}&limit=4`)
@@ -209,8 +211,12 @@ const autocompletar = () => {
             
             
     }).catch(err => console.error('Algo falló: ' + err))
-    ulSugerencias.classList.add('sugerencias-on')
     
+    if(busqueda !== ''){
+        ulSugerencias.classList.add('sugerencias-on')
+    }else{
+        ulSugerencias.classList.remove('sugerencias-on')
+    }
 }
 
 

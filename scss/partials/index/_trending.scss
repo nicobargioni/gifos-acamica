@@ -50,17 +50,14 @@ h3{
 
 .sugerencias-anim{
 
-    width: 90%;
-    max-height: 130px;
+    width: 80%;
+    max-height: 155px;
     overflow: hidden;
     display: none;
     background-color: white;
     border: 1px solid $main-color;
     border-radius: 20px;
-    padding-top: 0;
     text-align: left;
-    margin-bottom: 80px;
-
 
 }
 
@@ -88,6 +85,7 @@ h3{
 .sugerencias-on{
 
     display: inline;
+    height: 155px;
 
 }
 
@@ -96,13 +94,17 @@ h3{
 #sugerencias p{
 
     padding-left: 20px;
-
+    display: flex;
+    align-items: center;
+    font-family: 'Roboto', sans-serif;
 }
 
 .p-busqueda-open::before{
 
     content: url('/assets/icon-search.svg');
+    display: inline-block;
     margin-right: 20px;
+    transform: scale(0.8);
 
 }
 
