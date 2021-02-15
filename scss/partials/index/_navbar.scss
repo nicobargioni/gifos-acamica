@@ -31,7 +31,7 @@ nav{
 
 .logo-noc{
 
-    background-image: url('/assets/logo-mobile.svg');
+    background-image: url('./assets/logo-mobile.svg');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -63,16 +63,16 @@ hr{
     margin-right: 40px;
     width: 20px;
     height: 20px;
-    /* background-image: url('/assets/burger.svg');
+    background-image: url('/assets/burger.svg');
     background-repeat: no-repeat;
     background-position: center;
-    background-size: contain; */
+    background-size: contain;
 
 }
 
 .close-mobile{
 
-    background-image: url('/assets/close.svg');
+    background-image: url('./assets/close.svg');
 
 }
 
