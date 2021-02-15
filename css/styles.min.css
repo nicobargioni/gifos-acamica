@@ -142,6 +142,12 @@ input {
   width: 70%;
 }
 
+.li-busqueda-open {
+  color: red;
+  list-style: none;
+  padding: 4px;
+}
+
 .trending {
   display: flex;
   flex-direction: column;
@@ -182,8 +188,8 @@ h3 {
 }
 
 .sugerencias-anim {
-  width: 550px;
-  max-height: 200px;
+  width: 90%;
+  max-height: 130px;
   overflow: hidden;
   display: none;
   background-color: white;
@@ -211,17 +217,16 @@ h3 {
 }
 
 .sugerencias-on {
-  display: block;
-  width: 90%;
-  padding: 25px 19px;
+  display: inline;
 }
 
 #sugerencias p {
   padding-left: 20px;
 }
 
-li::before {
-  content: url("./assets/icon-search.svg");
+.p-busqueda-open::before {
+  content: url("/assets/icon-search.svg");
+  margin-right: 20px;
 }
 
 .img-search-container {

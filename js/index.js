@@ -14,7 +14,19 @@ let logomobile = document.getElementById('logo-nav-mobile')
 let titulo = document.getElementById('titulo')
 let trendingdiv = document.getElementById('trending')
 
+
+//************************************************************/
+
+// VARIABLES DE SUGERENCIAS - AUTOCOMPLETAR
+
+let tituloBusqueda = document.getElementById('h3-busqueda')
+let ulSugerencias = document.getElementById('sugerencias')
+
+//************************************************************/
+
 const API = 'p5x2giFPqjYRL2ehvqZ9ctmMD8VAH2Fl'
+
+/*******************************************************************************/
 
 // FETCH HACIA TRENDING
 
@@ -40,9 +52,11 @@ fetch(`https://api.giphy.com/v1/gifs/trending?api_key=${API}&limit=3&rating=g`)
 
 .catch(err => console.error('Algo falló: ' + err))
 
+// FIN DE FETCH HACIA TRENDING
 
+/*******************************************************************************/
 
-
+// FUNCION CAMBIAR A MODO NOCTURNO
 
 const cambiarnocturno = () => {
 
@@ -93,6 +107,12 @@ const cambiarnocturno = () => {
 
 }
 
+// FIN FUNCION MODO NOCTURNO
+
+/****************************************************************************/
+
+// FUNCION MOSTRAR MENU (MOBILE)
+
 const mostrarMenu = () => {
 
     
@@ -120,6 +140,12 @@ const mostrarMenu = () => {
     menu.classList.toggle('mostrar-menu')
 
 }
+
+// FIN FUNCION MOSTRAR MENU (MOBILE)
+
+/****************************************************************************/
+
+// FUNCION MOSTRAR GIFS
 
 const mostrarGifs = () => {
     
@@ -153,19 +179,8 @@ const mostrarGifs = () => {
     
 }
 
-let tituloBusqueda = document.getElementById('h3-busqueda')
-let ulSugerencias = document.getElementById('sugerencias')
-
-/* const busquedaAnimacion = () => {
-
-    busqueda = input.value
-    if(busqueda !== ''){
-        ulSugerencias.classList.add('sugerencias-on')
-    }
-
-}
-busquedaAnimacion() */
-
+// FIN FUNCION MOSTRAR GIFS
+/****************************************************************************/
 
 
 const autocompletar = () => {
@@ -184,6 +199,8 @@ const autocompletar = () => {
 
                 let palabraCreada = document.createElement('p')
                 let sugerenciaLi = document.createElement('li')
+                palabraCreada.classList.add('p-busqueda-open')
+                sugerenciaLi.classList.add('li-busqueda-open')
                 palabraCreada.textContent = json.data[i].name
                 sugerenciaLi.appendChild(palabraCreada)
                 ulSugerencias.appendChild(sugerenciaLi)
