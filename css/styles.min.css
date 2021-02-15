@@ -472,6 +472,9 @@ h2 {
   .mostrar-tapa {
     display: none;
   }
+  .sugerencias-anim {
+    width: 40%;
+  }
 }
 
 .crear-gifo .camara-animation {
