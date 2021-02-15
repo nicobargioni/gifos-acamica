@@ -8,10 +8,8 @@
     opacity: 0.9;
     display: none;
     position: absolute;
-    left: 0;
-    top: 40px;
-    top: 100px;
-    z-index: 1;
+    top: 90px;
+    z-index: 5;
 
 }
 
@@ -29,10 +27,11 @@ ul{
 
 }
 
-li{
+.menu li{
 
     padding-bottom: 20px;
     display: flex;
+    flex-direction: column;
     align-items: center;
     
 }
@@ -50,6 +49,8 @@ li{
 .mostrar-menu{
 
     display: flex;
+    position: fixed;
     flex-direction: column;
+    align-items: center;
 
 }

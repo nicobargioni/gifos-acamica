@@ -36,7 +36,7 @@ nav {
 }
 
 .logo-noc {
-  background-image: url("./assets/logo-mobile.svg");
+  background-image: url("/assets/logo-mobile.svg");
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
@@ -61,18 +61,10 @@ hr {
   margin-right: 40px;
   width: 20px;
   height: 20px;
-  background-image: url("/assets/burger.svg");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
 }
 
 .close-mobile {
-  background-image: url("./assets/close.svg");
-}
-
-.checkbox {
-  display: none;
+  background-image: url("/assets/close.svg");
 }
 
 .index-main {
@@ -96,7 +88,7 @@ h1 {
 .lupa {
   width: 24px;
   height: 24px;
-  background-image: url("./assets/icon-search.svg");
+  background-image: url("/assets/icon-search.svg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -275,7 +267,7 @@ footer .copy {
 #facebook {
   width: 20px;
   height: 20px;
-  background-image: url("./assets/icon_facebook.svg");
+  background-image: url("/assets/icon_facebook.svg");
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
@@ -285,7 +277,7 @@ footer .copy {
 #instagram {
   width: 20px;
   height: 20px;
-  background-image: url("./assets/icon_instagram.svg");
+  background-image: url("/assets/icon_instagram.svg");
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
@@ -295,7 +287,7 @@ footer .copy {
 #twitter {
   width: 20px;
   height: 20px;
-  background-image: url("./assets/icon-twitter.svg");
+  background-image: url("/assets/icon-twitter.svg");
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
@@ -624,10 +616,8 @@ h2 {
   opacity: 0.9;
   display: none;
   position: absolute;
-  left: 0;
-  top: 40px;
-  top: 100px;
-  z-index: 1;
+  top: 90px;
+  z-index: 5;
 }
 
 .tapa-a {
@@ -640,9 +630,10 @@ ul {
   padding-top: 55px;
 }
 
-li {
+.menu li {
   padding-bottom: 20px;
   display: flex;
+  flex-direction: column;
   align-items: center;
 }
 
@@ -654,7 +645,9 @@ li {
 
 .mostrar-menu {
   display: flex;
+  position: fixed;
   flex-direction: column;
+  align-items: center;
 }
 
 .oscuro {
@@ -666,11 +659,11 @@ li {
 }
 
 .divlogo-nocturno {
-  background-image: url("./assets/logo-modo-noc.svg");
+  background-image: url("/assets/logo-modo-noc.svg");
 }
 
 .lupa-nocturno {
-  background-image: url("./assets/icon-search-modo-noct.svg");
+  background-image: url("/assets/icon-search-modo-noct.svg");
 }
 
 .buscador-nocturno {
@@ -684,7 +677,7 @@ li {
 }
 
 .logo-nocturno {
-  background-image: url("./assets/logo-mobile-modo-noct.svg");
+  background-image: url("/assets/logo-mobile-modo-noct.svg");
   width: 60px;
   height: 60px;
   background-position: center;
@@ -693,11 +686,11 @@ li {
 }
 
 .close-mobile-nocturno {
-  background-image: url("./assets/close-modo-noct.svg");
+  background-image: url("/assets/close-modo-noct.svg");
 }
 
 .burger-mobile-nocturno {
-  background-image: url("./assets/burger-modo-noct.svg");
+  background-image: url("/assets/burger-modo-noct.svg");
 }
 
 /* #222326 */

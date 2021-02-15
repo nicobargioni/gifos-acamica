@@ -12,7 +12,7 @@ const API = 'p5x2giFPqjYRL2ehvqZ9ctmMD8VAH2Fl'
 
 // FETCH HACIA TRENDING
 
-fetch(`https://api.giphy.com/v1/gifs/trending?api_key=${API}&limit=25&rating=g`)
+fetch(`https://api.giphy.com/v1/gifs/trending?api_key=${API}&limit=3&rating=g`)
     .then(response => response.json())
     .then(json => {
 
@@ -34,19 +34,17 @@ fetch(`https://api.giphy.com/v1/gifs/trending?api_key=${API}&limit=25&rating=g`)
 
 .catch(err => console.error('Algo falló: ' + err))
 
+let etiquetas = document.getElementsByTagName('a')
+let h3 = document.getElementsByTagName('h3')
+let p = document.getElementsByTagName('p')
+let logodesktop = document.getElementById('divlogo')
+let logomobile = document.getElementById('logo-nav-mobile')
+let titulo = document.getElementById('titulo')
+let trendingdiv = document.getElementById('trending')
+
+
 
 const cambiarnocturno = () => {
-
-    let etiquetas = document.getElementsByTagName('a')
-    let h3 = document.getElementsByTagName('h3')
-    let p = document.getElementsByTagName('p')
-    let logodesktop = document.getElementById('divlogo')
-    let logomobile = document.getElementById('logo-nav-mobile')
-    let titulo = document.getElementById('titulo')
-    let trendingdiv = document.getElementById('trending')
-    let navbar = document.getElementsByTagName('nav')
-
-
 
     for(let i = 0 ; i < etiquetas.length ; i++){
 
@@ -99,7 +97,7 @@ const cambiarnocturno = () => {
 
 const mostrarMenu = () => {
 
-    menu.classList.toggle('mostrar-menu')
+    
 
 
 
@@ -122,6 +120,9 @@ const mostrarMenu = () => {
         burgermobile.setAttribute('src', './assets/close-modo-noct.svg')
 
     }
+
+    console.log('muestra')
+    menu.classList.toggle('mostrar-menu')
 
 }
 
