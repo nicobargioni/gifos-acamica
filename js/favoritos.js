@@ -17,9 +17,11 @@ let menu = document.getElementById('menu')
 let aModoNocturno = document.getElementById('a-modonocturno')
 let navbar = document.getElementsByTagName('nav')
 
+const API = 'p5x2giFPqjYRL2ehvqZ9ctmMD8VAH2Fl'
+
 // FETCH HACIA TRENDING
 
-fetch('https://api.giphy.com/v1/gifs/trending?api_key=p5x2giFPqjYRL2ehvqZ9ctmMD8VAH2Fl&limit=25&rating=g')
+fetch(`https://api.giphy.com/v1/gifs/trending?api_key=${API}&limit=3&rating=g`)
     .then(response => response.json())
     .then(json => {
 

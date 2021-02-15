@@ -64,31 +64,30 @@ const cambiarnocturno = () => {
 
     }
 
-        logomobile.classList.toggle('divlogo-nocturno')
-        logodesktop.classList.toggle('logo-nocturno')
-        body.classList.toggle('oscuro')
-        misgifos.classList.toggle('texto-nocturno')
-        trendingdiv.classList.toggle('backmain')
+    
+    logomobile.classList.toggle('divlogo-nocturno')
+    logodesktop.classList.toggle('logo-nocturno')
+    body.classList.toggle('oscuro')
+    trendingdiv.classList.toggle('backmain')
+    
 
-        if(burgermobile.getAttribute('src') === './assets/close.svg'){
 
-            burgermobile.setAttribute('src', './assets/close-modo-noct.svg')
+    if(burgermobile.getAttribute('src') === './assets/close.svg'){
 
-        }else if(burgermobile.getAttribute('src') === './assets/close-modo-noct.svg'){
+        burgermobile.setAttribute('src', './assets/close-modo-noct.svg')
 
-            burgermobile.setAttribute('src', './assets/close.svg')
+    }else if(burgermobile.getAttribute('src') === './assets/close-modo-noct.svg'){
 
-        }
+        burgermobile.setAttribute('src', './assets/close.svg')
+
+    }
 
 }
 
 
 const mostrarMenu = () => {
 
-    menu.classList.toggle('mostrar-menu')
-
-
-
+    
     if(burgermobile.getAttribute('src') === './assets/burger.svg'){
 
         burgermobile.setAttribute('src', './assets/close.svg')
@@ -108,6 +107,9 @@ const mostrarMenu = () => {
         burgermobile.setAttribute('src', './assets/close-modo-noct.svg')
 
     }
+
+    console.log('muestra')
+    menu.classList.toggle('mostrar-menu')
 
 }
 

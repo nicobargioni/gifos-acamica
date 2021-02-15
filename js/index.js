@@ -6,7 +6,13 @@ let lupa = document.getElementById('lupa')
 let input = document.getElementById('search')
 let menu = document.getElementById('menu')
 let aModoNocturno = document.getElementById('a-modonocturno')
-
+let etiquetas = document.getElementsByTagName('a')
+let h3 = document.getElementsByTagName('h3')
+let p = document.getElementsByTagName('p')
+let logodesktop = document.getElementById('divlogo')
+let logomobile = document.getElementById('logo-nav-mobile')
+let titulo = document.getElementById('titulo')
+let trendingdiv = document.getElementById('trending')
 
 const API = 'p5x2giFPqjYRL2ehvqZ9ctmMD8VAH2Fl'
 
@@ -34,13 +40,7 @@ fetch(`https://api.giphy.com/v1/gifs/trending?api_key=${API}&limit=3&rating=g`)
 
 .catch(err => console.error('Algo falló: ' + err))
 
-let etiquetas = document.getElementsByTagName('a')
-let h3 = document.getElementsByTagName('h3')
-let p = document.getElementsByTagName('p')
-let logodesktop = document.getElementById('divlogo')
-let logomobile = document.getElementById('logo-nav-mobile')
-let titulo = document.getElementById('titulo')
-let trendingdiv = document.getElementById('trending')
+
 
 
 
@@ -91,16 +91,11 @@ const cambiarnocturno = () => {
 
     }
 
-    
-
 }
 
 const mostrarMenu = () => {
 
     
-
-
-
     if(burgermobile.getAttribute('src') === './assets/burger.svg'){
 
         burgermobile.setAttribute('src', './assets/close.svg')
