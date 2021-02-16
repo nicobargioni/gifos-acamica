@@ -3,7 +3,6 @@
   padding: 0;
   box-sizing: border-box;
   font-family: "Montserrat", sans-serif;
-  overflow-x: hidden;
 }
 
 body {
@@ -154,12 +153,9 @@ input {
   justify-content: center;
   align-items: center;
   margin-top: 45px;
-  padding-top: 100px;
   background-color: #F3F5F8;
   text-align: center;
   height: 100%;
-  padding-bottom: 180px;
-  /* overflow: hidden; */
 }
 
 h3 {
@@ -243,6 +239,19 @@ h3 {
 
 .btnpasargif {
   display: none;
+}
+
+.gif-padre {
+  width: 100%;
+  overflow-x: scroll;
+  /* margin: 0 10px; */
+  display: flex;
+  justify-content: center;
+}
+
+.frena-botones {
+  width: 100%;
+  display: flex;
 }
 
 footer {
@@ -498,13 +507,16 @@ h2 {
   .btnpasargif {
     display: inline-block;
   }
-  /*  .container-gifs-fetch{
-
-        background-color: red;
-        overflow-x: scroll;
-    
-    }
-     */
+  .gif-padre {
+    width: 80%;
+    overflow-x: hidden;
+    display: flex;
+    justify-content: center;
+  }
+  .frena-botones {
+    display: flex;
+    justify-content: center;
+  }
 }
 
 .crear-gifo .camara-animation {

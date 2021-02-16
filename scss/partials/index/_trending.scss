@@ -5,12 +5,10 @@
     justify-content: center;
     align-items: center;
     margin-top: 45px;
-    padding-top: 100px;
     background-color: #F3F5F8;
     text-align: center;
     height: 100%;
-    padding-bottom: 180px;
-    /* overflow: hidden; */
+    
 
 }
 
@@ -124,3 +122,19 @@ h3{
 }
 
 
+.gif-padre{
+
+    width: 100%;
+    overflow-x: scroll;
+    /* margin: 0 10px; */
+    display: flex;
+    justify-content: center;
+
+}
+
+.frena-botones{
+
+    width: 100%;
+    display: flex;
+    
+}

@@ -211,12 +211,23 @@
     .btnpasargif{
         display: inline-block;
     }
-    
-   /*  .container-gifs-fetch{
 
-        background-color: red;
-        overflow-x: scroll;
+
+    .gif-padre{
+
+        width: 80%;
+        overflow-x: hidden;
+        display: flex;
+        justify-content: center;
     
     }
-     */
+
+    .frena-botones{
+
+        
+        display: flex;
+        justify-content: center;
+        
+
+    }
 }
