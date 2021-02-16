@@ -219,6 +219,13 @@ const autocompletar = () => {
                 palabraCreada.textContent = json.data[i].name
                 sugerenciaLi.appendChild(palabraCreada)
                 ulSugerencias.appendChild(sugerenciaLi)
+
+                sugerenciaLi.addEventListener('click', function(){
+
+                    input.value = palabraCreada.textContent
+                    ulSugerencias.classList.remove('sugerencias-on')
+
+                })
                 
             }
             
