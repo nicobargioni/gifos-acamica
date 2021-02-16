@@ -13,9 +13,12 @@ let logodesktop = document.getElementById('divlogo')
 let logomobile = document.getElementById('logo-nav-mobile')
 let titulo = document.getElementById('titulo')
 let trendingdiv = document.getElementById('trending')
+let botonVerMas = document.getElementById('boton-vermas')
 
 let btnAtras = document.getElementById('btn-atras')
 let btnAdelante = document.getElementById('btn-adelante')
+
+let contImg = document.getElementById('img-search-container')
 
 
 //************************************************************/
@@ -41,19 +44,22 @@ const fetchTrending = () =>{
     fetch(`https://api.giphy.com/v1/gifs/trending?api_key=${API}&limit=${limit}&rating=g&offset=${offset}`)
     .then(response => response.json())
     .then(json => {
-
+        console.log(json)
 
         for(let i = 0 ; i < json.data.length ; i++){
+
+            
 
             let gifo1 = document.getElementById('gifo1')
             let imagengifo1 = document.createElement('img')
             imagengifo1.src = json.data[i].images.downsized.url
             imagengifo1.classList.add('gifos')
-            imagengifo1.style.width = '300px'
-            imagengifo1.style.height = '250px'
+           
             gifo1.appendChild(imagengifo1)
 
         }
+
+    
 
     })
 
@@ -160,23 +166,16 @@ const mostrarMenu = () => {
 /*****************************************************************************/
 // FUNCION MOSTRAR GIFS
 const mostrarGifs = () => {
-    
-    //FETCH SEARCH - TRAE LOS GIFS
 
     let busquedaMostrar = input.value
-
+    let limit = 12
+    let offset = 0
     
-    let contImg = document.getElementById('img-search-container')
-
-    fetch(`https://api.giphy.com/v1/gifs/search?api_key=p5x2giFPqjYRL2ehvqZ9ctmMD8VAH2Fl&q=${busquedaMostrar}&limit=25&offset=0&rating=g&lang=es`)
+    fetch(`https://api.giphy.com/v1/gifs/search?api_key=${API}&q=${busquedaMostrar}&limit=${limit}&offset=${offset}&rating=g&lang=es`)
         .then(response => response.json())
         .then(json => {
             
-            
-            console.log(json)
-            
             for(let i = 0; i < json.data.length ; i++){
-                
                 
                 let imgIn = document.createElement('img')
                 imgIn.style.width = '200px'
@@ -188,6 +187,7 @@ const mostrarGifs = () => {
     
     .catch(err => console.error('Algo falló: ' + err))
 
+    botonVerMas.style.display = 'inline'
     
 }
 // FIN FUNCION MOSTRAR GIFS
