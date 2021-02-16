@@ -10,6 +10,7 @@
     text-align: center;
     height: 100%;
     padding-bottom: 180px;
+    /* overflow: hidden; */
 
 }
 
@@ -39,7 +40,7 @@ h3{
 
 }
 
-.trending .gif-container{
+.gif-container{
 
     display: flex;
     align-items: center;
@@ -117,3 +118,9 @@ h3{
     
 
 }
+
+.btnpasargif{
+    display: none;
+}
+
+

@@ -184,4 +184,39 @@
         width: 40%;
 
     }
+
+    .container-gifs-btns{
+
+        display: flex;
+    
+    }
+    
+    .container-gifs-btns img{
+        margin: 0 20px;
+    }
+    
+    .containergifs{
+        width: 80%;
+        display: flex;
+    }
+    
+    .container-gifs-fetch{
+    
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    
+    }
+
+    .btnpasargif{
+        display: inline-block;
+    }
+    
+   /*  .container-gifs-fetch{
+
+        background-color: red;
+        overflow-x: scroll;
+    
+    }
+     */
 }

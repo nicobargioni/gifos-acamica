@@ -14,6 +14,9 @@ let logomobile = document.getElementById('logo-nav-mobile')
 let titulo = document.getElementById('titulo')
 let trendingdiv = document.getElementById('trending')
 
+let btnAtras = document.getElementById('btn-atras')
+let btnAdelante = document.getElementById('btn-adelante')
+
 
 //************************************************************/
 
@@ -28,9 +31,14 @@ const API = 'p5x2giFPqjYRL2ehvqZ9ctmMD8VAH2Fl'
 
 /*******************************************************************************/
 
+
+/*****************************************************************************/
 // FETCH HACIA TRENDING
 
-fetch(`https://api.giphy.com/v1/gifs/trending?api_key=${API}&limit=3&rating=g`)
+var offset = 800
+var limit = 3
+const fetchTrending = () =>{ 
+    fetch(`https://api.giphy.com/v1/gifs/trending?api_key=${API}&limit=${limit}&rating=g&offset=${offset}`)
     .then(response => response.json())
     .then(json => {
 
@@ -50,14 +58,16 @@ fetch(`https://api.giphy.com/v1/gifs/trending?api_key=${API}&limit=3&rating=g`)
     })
 
 
-.catch(err => console.error('Algo falló: ' + err))
+    .catch(err => console.error('Algo falló: ' + err))
+}
 
 // FIN DE FETCH HACIA TRENDING
+/*****************************************************************************/
+
+
 
 /*******************************************************************************/
-
 // FUNCION CAMBIAR A MODO NOCTURNO
-
 const cambiarnocturno = () => {
 
     for(let i = 0 ; i < etiquetas.length ; i++){
@@ -106,13 +116,14 @@ const cambiarnocturno = () => {
     }
 
 }
-
 // FIN FUNCION MODO NOCTURNO
-
 /****************************************************************************/
 
-// FUNCION MOSTRAR MENU (MOBILE)
 
+
+
+/*****************************************************************************/
+// FUNCION MOSTRAR MENU (MOBILE)
 const mostrarMenu = () => {
 
     
@@ -140,13 +151,14 @@ const mostrarMenu = () => {
     menu.classList.toggle('mostrar-menu')
 
 }
-
 // FIN FUNCION MOSTRAR MENU (MOBILE)
-
 /****************************************************************************/
 
-// FUNCION MOSTRAR GIFS
 
+
+
+/*****************************************************************************/
+// FUNCION MOSTRAR GIFS
 const mostrarGifs = () => {
     
     //FETCH SEARCH - TRAE LOS GIFS
@@ -178,16 +190,17 @@ const mostrarGifs = () => {
 
     
 }
-
 // FIN FUNCION MOSTRAR GIFS
 /****************************************************************************/
 
 
+
+
+/*****************************************************************************/
+// FUNCION AUTOCOMPLETAR
 const autocompletar = () => {
 
     busqueda = input.value
-
-    
     
     ulSugerencias.innerHTML = ''
     let autocomplete = fetch(`https://api.giphy.com/v1/tags/related/${busqueda}?api_key=${API}&limit=4`)
@@ -209,7 +222,6 @@ const autocompletar = () => {
                 
             }
             
-            
     }).catch(err => console.error('Algo falló: ' + err))
     
     if(busqueda !== ''){
@@ -217,9 +229,17 @@ const autocompletar = () => {
     }else{
         ulSugerencias.classList.remove('sugerencias-on')
     }
+
 }
+// FIN FUNCION AUTOCOMPLETAR
+/***********************************************************************/
 
 
+
+
+
+/*****************************************************************************/
+// FUNCION SCROLL
 function scrollFunction() {
     if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
       document.getElementById('nav-desktop').classList.add('sticky');
@@ -233,9 +253,39 @@ function scrollFunction() {
 window.onscroll = function () {
     scrollFunction();
   };
+// FIN FUNCION SCROLL
+/*****************************************************************************/
 
 
 
+
+/*****************************************************************************/
+// FUNCION PASAR GIFS ADELANTE
+const pasarGifsAdelante = () => {
+
+    offset += 3
+
+    let gifo1 = document.getElementById('gifo1')
+    gifo1.innerHTML = ''
+    fetchTrending()
+    
+    
+
+}
+
+
+const pasarGifsAtras = () => {
+
+    offset -= 3
+
+    let gifo1 = document.getElementById('gifo1')
+    gifo1.innerHTML = ''
+    fetchTrending()
+
+}
+
+
+fetchTrending();
 
 burgermobile.addEventListener('click', mostrarMenu)
 botonModoNocturno.addEventListener('click', cambiarnocturno)
@@ -245,5 +295,5 @@ input.addEventListener('keyup', autocompletar)
 // SOLAMENTE LA LUPA Y LA TECLA ENTER MUESTRAN LOS GIFS 
 lupa.addEventListener('click', mostrarGifs)
 
-
-
+btnAdelante.addEventListener('click', pasarGifsAdelante)
+btnAtras.addEventListener('click', pasarGifsAtras)

@@ -159,6 +159,7 @@ input {
   text-align: center;
   height: 100%;
   padding-bottom: 180px;
+  /* overflow: hidden; */
 }
 
 h3 {
@@ -180,7 +181,7 @@ h3 {
   display: flex;
 }
 
-.trending .gif-container {
+.gif-container {
   display: flex;
   align-items: center;
   justify-content: start;
@@ -238,6 +239,10 @@ h3 {
   gap: 30px;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(3, 1fr);
+}
+
+.btnpasargif {
+  display: none;
 }
 
 footer {
@@ -475,6 +480,31 @@ h2 {
   .sugerencias-anim {
     width: 40%;
   }
+  .container-gifs-btns {
+    display: flex;
+  }
+  .container-gifs-btns img {
+    margin: 0 20px;
+  }
+  .containergifs {
+    width: 80%;
+    display: flex;
+  }
+  .container-gifs-fetch {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  .btnpasargif {
+    display: inline-block;
+  }
+  /*  .container-gifs-fetch{
+
+        background-color: red;
+        overflow-x: scroll;
+    
+    }
+     */
 }
 
 .crear-gifo .camara-animation {
