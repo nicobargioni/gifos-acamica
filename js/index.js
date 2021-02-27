@@ -51,15 +51,51 @@ const fetchTrending = () =>{
             
 
             let gifo1 = document.getElementById('gifo1')
+
+            let contenedorGifos = document.createElement('div')
+            contenedorGifos.classList.add('gifos')
+
+
+
             let imagengifo1 = document.createElement('img')
             imagengifo1.src = json.data[i].images.downsized.url
             imagengifo1.classList.add('gifos')
-           
-            gifo1.appendChild(imagengifo1)
 
+
+           
+            contenedorGifos.appendChild(imagengifo1)
+            gifo1.appendChild(contenedorGifos)
+
+            imagengifo1.addEventListener('mouseover', function(){
+
+                let hoverDiv = document.createElement('div')
+                
+                hoverDiv.innerHTML += `
+                    
+                    <div class="iconos">
+                        <img src="/assets/icon-fav.svg" alt="Favoritos" class="botones-min" id="botonmin1">
+                        <img src="/assets/icon-max-normal.svg" alt="Maximizar" class="botones-min" id="botonmin2">
+                        <img src="/assets/icon-download.svg" alt="Descargar" class="botones-min" id="botonmin3">
+                    </div>
+
+                    <div class="desc">
+                        <p>${json.data[i].username}</p>
+                        <p>${json.data[i].title}</p>
+                    </div>
+
+                `
+                
+                hoverDiv.classList.add('gifo-hover')
+                
+                contenedorGifos.appendChild(hoverDiv)
+            })
+
+        
+
+            
         }
 
-    
+        
 
     })
 
@@ -69,8 +105,6 @@ const fetchTrending = () =>{
 
 // FIN DE FETCH HACIA TRENDING
 /*****************************************************************************/
-
-
 
 /*******************************************************************************/
 // FUNCION CAMBIAR A MODO NOCTURNO

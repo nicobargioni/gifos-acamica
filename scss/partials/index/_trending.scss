@@ -35,24 +35,9 @@ h3{
     width: 300px;
     height: 250px;
     cursor: pointer;
-    border: 1px solid black;
-    display: flex;
-
-    &:hover{
-        background-color: $main-color;
-        opacity: 0.6;
-    }
 
 }
 
-
-/* .gifos-hover{
-
-
-    background-color: $main-color;
-    
-}
- */
 .gif-container{
 
     display: flex;
