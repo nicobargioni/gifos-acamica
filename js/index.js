@@ -34,6 +34,13 @@ const API = 'p5x2giFPqjYRL2ehvqZ9ctmMD8VAH2Fl'
 
 /*******************************************************************************/
 
+const limpiarContenedorGifs = () => {
+
+    if(input.value === ''){
+        contImg.innerHTML = ''
+    }
+
+}
 
 /*****************************************************************************/
 // FETCH HACIA TRENDING
@@ -205,27 +212,125 @@ const mostrarGifs = () => {
     let limit = 12
     let offset = 0
     
+    
+
     fetch(`https://api.giphy.com/v1/gifs/search?api_key=${API}&q=${busquedaMostrar}&limit=${limit}&offset=${offset}&rating=g&lang=es`)
         .then(response => response.json())
         .then(json => {
-            
+
             for(let i = 0; i < json.data.length ; i++){
                 
+                let contenedorSearch = document.createElement('div')
+                contenedorSearch.style.width = '200px'
+                contenedorSearch.style.height = '200px'
+
                 let imgIn = document.createElement('img')
                 imgIn.style.width = '200px'
                 imgIn.style.height = '200px'
                 imgIn.src = json.data[i].images.downsized.url
-                contImg.appendChild(imgIn)
+                contenedorSearch.appendChild(imgIn)
+
+                contImg.appendChild(contenedorSearch)
+                
+
+                imgIn.addEventListener('mousemove', function(){
+
+                    let hoverDiv = document.createElement('div')
+                
+                    hoverDiv.innerHTML += `
+                        
+                        <div class="gifossearch">
+                            <div class="iconossearch">
+                                <img src="/assets/icon-fav.svg" alt="Favoritos" class="botones-min" id="botonmin1">
+                                <img src="/assets/icon-max-normal.svg" alt="Maximizar" class="botones-min" id="botonmin2">
+                                <img src="/assets/icon-download.svg" alt="Descargar" class="botones-min" id="botonmin3">
+                            </div>
+                            <div class="descsearch">
+                                <p>${json.data[i].username}</p>
+                                <p>${json.data[i].title}</p>
+                            </div>
+                        </div>
+
+                        `
+                    
+                    
+                    
+                    contenedorSearch.appendChild(hoverDiv) 
+
+                })
+
             }
         })
     
     .catch(err => console.error('Algo falló: ' + err))
 
     botonVerMas.style.display = 'inline'
+
+    botonVerMas.addEventListener('click', function(){
+
+
+        offset += 12
+
+        fetch(`https://api.giphy.com/v1/gifs/search?api_key=${API}&q=${busquedaMostrar}&limit=${limit}&offset=${offset}&rating=g&lang=es`)
+        .then(response => response.json())
+        .then(json => {
+
+            
+            for(let i = 0; i < json.data.length ; i++){
+                
+                let contenedorSearch = document.createElement('div')
+                contenedorSearch.style.width = '200px'
+                contenedorSearch.style.height = '200px'
+
+                let imgIn = document.createElement('img')
+                imgIn.style.width = '200px'
+                imgIn.style.height = '200px'
+                imgIn.src = json.data[i].images.downsized.url
+                contenedorSearch.appendChild(imgIn)
+
+                contImg.appendChild(contenedorSearch)
+                
+
+                imgIn.addEventListener('mousemove', function(){
+
+                    let hoverDiv = document.createElement('div')
+                
+                    hoverDiv.innerHTML += `
+                        
+                        <div class="gifossearch">
+                            <div class="iconossearch">
+                                <img src="/assets/icon-fav.svg" alt="Favoritos" class="botones-min" id="botonmin1">
+                                <img src="/assets/icon-max-normal.svg" alt="Maximizar" class="botones-min" id="botonmin2">
+                                <img src="/assets/icon-download.svg" alt="Descargar" class="botones-min" id="botonmin3">
+                            </div>
+                            <div class="descsearch">
+                                <p>User</p>
+                                <p>Titlo Gif</p>
+                            </div>
+                        </div>
+
+                        `
+                    
+                    
+                    
+                    contenedorSearch.appendChild(hoverDiv) 
+
+                })
+
+            }
+        })
+    
+        .catch(err => console.error('Algo falló: ' + err))
+
+        
+
+    })
     
 }
 // FIN FUNCION MOSTRAR GIFS
 /****************************************************************************/
+
+
 
 
 
@@ -332,6 +437,7 @@ burgermobile.addEventListener('click', mostrarMenu)
 botonModoNocturno.addEventListener('click', cambiarnocturno)
 aModoNocturno.addEventListener('click', cambiarnocturno)
 input.addEventListener('keyup', autocompletar)
+input.addEventListener('keyup', limpiarContenedorGifs)
 
 // SOLAMENTE LA LUPA Y LA TECLA ENTER MUESTRAN LOS GIFS 
 lupa.addEventListener('click', mostrarGifs)
