@@ -57,6 +57,7 @@ h3{
     border: 1px solid $main-color;
     border-radius: 20px;
     text-align: left;
+    margin-top: -80px;
 
 }
 
@@ -108,14 +109,22 @@ h3{
 
 }
 
-.img-search-container{
+/* .img-search-container{
     
     display: grid;
-    gap: 30px;
     grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 4fr);
+    gap: 20px;
     
+} */
 
+.img-search-container{
+    
+    gap: 10px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+    
 }
 
 .btnpasargif{
@@ -140,3 +149,8 @@ h3{
     
 }
 
+.gif{
+
+    width: 140px;
+    height: 140px;
+}

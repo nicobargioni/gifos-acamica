@@ -14,12 +14,12 @@ let logomobile = document.getElementById('logo-nav-mobile')
 let titulo = document.getElementById('titulo')
 let trendingdiv = document.getElementById('trending')
 let botonVerMas = document.getElementById('boton-vermas')
-
+let palabraBuscada = document.getElementById('palabra-buscada')
 let btnAtras = document.getElementById('btn-atras')
 let btnAdelante = document.getElementById('btn-adelante')
 
 let contImg = document.getElementById('img-search-container')
-
+let sinResultados = document.getElementById('sinresultados')
 
 //************************************************************/
 
@@ -38,6 +38,8 @@ const limpiarContenedorGifs = () => {
 
     if(input.value === ''){
         contImg.innerHTML = ''
+        sinResultados.innerHTML = ''
+        palabraBuscada.textContent = ''
     }
 
 }
@@ -45,9 +47,12 @@ const limpiarContenedorGifs = () => {
 /*****************************************************************************/
 // FETCH HACIA TRENDING
 
-var offset = 800
-var limit = 3
+
 const fetchTrending = () =>{ 
+
+    let offset = 800
+    let limit = 3
+
     fetch(`https://api.giphy.com/v1/gifs/trending?api_key=${API}&limit=${limit}&rating=g&offset=${offset}`)
     .then(response => response.json())
     .then(json => {
@@ -166,9 +171,6 @@ const cambiarnocturno = () => {
 // FIN FUNCION MODO NOCTURNO
 /****************************************************************************/
 
-
-
-
 /*****************************************************************************/
 // FUNCION MOSTRAR MENU (MOBILE)
 const mostrarMenu = () => {
@@ -201,9 +203,6 @@ const mostrarMenu = () => {
 // FIN FUNCION MOSTRAR MENU (MOBILE)
 /****************************************************************************/
 
-
-
-
 /*****************************************************************************/
 // FUNCION MOSTRAR GIFS
 const mostrarGifs = () => {
@@ -211,29 +210,50 @@ const mostrarGifs = () => {
     let busquedaMostrar = input.value
     let limit = 12
     let offset = 0
+
+    palabraBuscada.textContent = busquedaMostrar
     
-    
+    limpiarContenedorGifs()
 
     fetch(`https://api.giphy.com/v1/gifs/search?api_key=${API}&q=${busquedaMostrar}&limit=${limit}&offset=${offset}&rating=g&lang=es`)
         .then(response => response.json())
         .then(json => {
 
+            if(json.data.length < 1){
+
+                let sinresultados = document.getElementById('sinresultados')
+
+                let divSinResultados = document.createElement('div')
+                divSinResultados.innerHTML += `
+                
+                <div class="sinresultados">
+
+                    <h2 class="sinrh2">${busquedaMostrar}</h2>
+                    <img class="logosinresultados" src="./assets//icon-busqueda-sin-resultado.svg" alt="Sin resultados">
+                    <h3 class="sinrh3">Intenta con otra búsqueda</h3>
+
+                </div>
+                
+                `
+                sinresultados.appendChild(divSinResultados)
+                
+            
+        }else{
+
             for(let i = 0; i < json.data.length ; i++){
                 
                 let contenedorSearch = document.createElement('div')
-                contenedorSearch.style.width = '200px'
-                contenedorSearch.style.height = '200px'
+                contenedorSearch.classList.add('gif')
 
                 let imgIn = document.createElement('img')
-                imgIn.style.width = '200px'
-                imgIn.style.height = '200px'
+                imgIn.classList.add('gif')
                 imgIn.src = json.data[i].images.downsized.url
                 contenedorSearch.appendChild(imgIn)
 
                 contImg.appendChild(contenedorSearch)
                 
 
-                imgIn.addEventListener('mousemove', function(){
+                imgIn.addEventListener('mouseover', function(){
 
                     let hoverDiv = document.createElement('div')
                 
@@ -246,8 +266,8 @@ const mostrarGifs = () => {
                                 <img src="/assets/icon-download.svg" alt="Descargar" class="botones-min" id="botonmin3">
                             </div>
                             <div class="descsearch">
-                                <p>${json.data[i].username}</p>
-                                <p>${json.data[i].title}</p>
+                            <p>${json.data[i].username}</p>
+                            <p>${json.data[i].title}</p>
                             </div>
                         </div>
 
@@ -260,7 +280,13 @@ const mostrarGifs = () => {
                 })
 
             }
-        })
+
+        }
+    
+    
+    
+    
+    })
     
     .catch(err => console.error('Algo falló: ' + err))
 
@@ -279,19 +305,17 @@ const mostrarGifs = () => {
             for(let i = 0; i < json.data.length ; i++){
                 
                 let contenedorSearch = document.createElement('div')
-                contenedorSearch.style.width = '200px'
-                contenedorSearch.style.height = '200px'
+                contenedorSearch.classList.add('gif')
 
                 let imgIn = document.createElement('img')
-                imgIn.style.width = '200px'
-                imgIn.style.height = '200px'
+                imgIn.classList.add('gif')
                 imgIn.src = json.data[i].images.downsized.url
                 contenedorSearch.appendChild(imgIn)
 
                 contImg.appendChild(contenedorSearch)
                 
 
-                imgIn.addEventListener('mousemove', function(){
+                imgIn.addEventListener('mouseover', function(){
 
                     let hoverDiv = document.createElement('div')
                 
@@ -304,8 +328,8 @@ const mostrarGifs = () => {
                                 <img src="/assets/icon-download.svg" alt="Descargar" class="botones-min" id="botonmin3">
                             </div>
                             <div class="descsearch">
-                                <p>User</p>
-                                <p>Titlo Gif</p>
+                            <p>${json.data[i].username}</p>
+                            <p>${json.data[i].title}</p>
                             </div>
                         </div>
 
@@ -329,11 +353,6 @@ const mostrarGifs = () => {
 }
 // FIN FUNCION MOSTRAR GIFS
 /****************************************************************************/
-
-
-
-
-
 
 /*****************************************************************************/
 // FUNCION AUTOCOMPLETAR
@@ -380,10 +399,6 @@ const autocompletar = () => {
 // FIN FUNCION AUTOCOMPLETAR
 /***********************************************************************/
 
-
-
-
-
 /*****************************************************************************/
 // FUNCION SCROLL
 function scrollFunction() {
@@ -401,9 +416,6 @@ window.onscroll = function () {
   };
 // FIN FUNCION SCROLL
 /*****************************************************************************/
-
-
-
 
 /*****************************************************************************/
 // FUNCION PASAR GIFS ADELANTE
@@ -437,10 +449,16 @@ burgermobile.addEventListener('click', mostrarMenu)
 botonModoNocturno.addEventListener('click', cambiarnocturno)
 aModoNocturno.addEventListener('click', cambiarnocturno)
 input.addEventListener('keyup', autocompletar)
+
+
 input.addEventListener('keyup', limpiarContenedorGifs)
+// Para que se borre todo el contenedor de gifs despues de buscar algo al borrar completamente el input
 
 // SOLAMENTE LA LUPA Y LA TECLA ENTER MUESTRAN LOS GIFS 
 lupa.addEventListener('click', mostrarGifs)
+lupa.addEventListener('click', limpiarContenedorGifs)
+// Porque si no limpio el contenedor, cuando vuelva a buscar algo y de click en la lupa,
+// se va a seguir viendo la busqueda anterior (los otros 12)
 
 btnAdelante.addEventListener('click', pasarGifsAdelante)
 btnAtras.addEventListener('click', pasarGifsAtras)

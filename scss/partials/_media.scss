@@ -183,6 +183,7 @@
 
         width: 80%;
         max-width: 550px;
+        margin-top: -80px;
 
     }
 
@@ -230,5 +231,34 @@
         justify-content: center;
         
 
+    }
+
+    .img-search-container{
+    
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(3, 4fr);
+        gap: 20px;
+        
+    }
+
+    /* .img-search-container{
+    
+        display: grid;
+        grid-template-columns: repeat(2, 50%);
+        grid-template-rows: repeat(6, 17%);
+        
+    } */
+
+    .gifossearch{
+
+        width: 200px;
+        height: 200px;
+    }
+
+    .gif{
+
+        width: 200px;
+        height: 200px;
     }
 }

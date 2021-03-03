@@ -128,8 +128,7 @@ body{
 
 .iconossearch{
 
-    margin-left: 80px;
-    margin-top: -10px;
+    margin-top: 15px;
     margin-left: 60px;
 
 }
@@ -137,8 +136,38 @@ body{
 .descsearch{
 
     color: white;
-    margin-top: 80px;
-    margin-left: 20px;
+    margin-top: 60px;
     text-align: left;
+    margin-left: 15px;
+    width: 80%;
+
+}
+
+
+.sinresultados{
+
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 100px;
+
+}
+
+.sinrh3{
+    color: $second-color;
+    margin-top: 30px;
+    
+}
+
+.sinrh2{
+
+    margin-bottom: 50px;
+}
+
+.logosinresultados{
+
+    width: 300px;
 
 }
